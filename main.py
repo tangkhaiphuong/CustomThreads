@@ -2,12 +2,12 @@ import math
 import xml.etree.ElementTree as ET
 from abc import ABC, abstractmethod
 
-NAME = "3D-printed Metric Threads V2"
+NAME = "3D-printed Metric Threads"
 UNIT = "mm"
 ANGLE = 60.0
-SIZES = list(range(8, 51))
-PITCHES = [3.5, 5.0]
-OFFSETS = [.0, .1, .2, .4, .8]
+SIZES = list(range(3, 201))
+PITCHES = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20]
+OFFSETS = [.0, .1, .2, .4, .8, 1]
 
 
 def designator(val: float):
@@ -119,7 +119,7 @@ def generate():
                     ET.SubElement(thread_element, "TapDrill").text = "{:.4g}".format(thread.tapDrill)
 
     ET.indent(tree)
-    tree.write('3DPrintedMetricV2.xml', encoding='UTF-8', xml_declaration=True)
+    tree.write('3DPrintedMetric.xml', encoding='UTF-8', xml_declaration=True)
 
 
 generate()
